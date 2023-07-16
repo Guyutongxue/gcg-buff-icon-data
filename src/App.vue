@@ -9,10 +9,12 @@ import { computed } from "vue";
 
 const m = ref<Record<string, string>>(icons);
 
-watch(m.value, (value) => {
-  window.addEventListener("beforeunload", (event) => {
+function preventClose(event: BeforeUnloadEvent) {
     event.preventDefault();
-  });
+  }
+
+watch(m.value, (value) => {
+  window.addEventListener("beforeunload", preventClose);
 });
 
 const ratio = computed(() => {
