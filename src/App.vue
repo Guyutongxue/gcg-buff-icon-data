@@ -10,8 +10,8 @@ import { computed } from "vue";
 const m = ref<Record<string, string>>(icons);
 
 function preventClose(event: BeforeUnloadEvent) {
-    event.preventDefault();
-  }
+  event.preventDefault();
+}
 
 watch(m.value, (value) => {
   window.addEventListener("beforeunload", preventClose);
@@ -20,7 +20,7 @@ watch(m.value, (value) => {
 const ratio = computed(() => {
   const total = official.length;
   const filled = Object.values(m.value).filter((v) => v).length;
-  return `${(100 * filled / total).toFixed(2)}%`;
+  return `${((100 * filled) / total).toFixed(2)}%`;
 });
 
 function exportData() {
@@ -47,14 +47,23 @@ const filterNull = ref(false);
     </v-app-bar>
     <v-main>
       <v-container>
-        <div class="d-flex flex-row align-center">
-          <v-switch
-            label="仅显示无图标"
-            v-model="filterNull"
-            color="primary"
-          ></v-switch>
-          <span>目前图标覆盖率: {{ ratio }}</span>
-        </div>
+        <p>
+          目前图标覆盖率:
+          {{ ratio }}。如果你有要补充或修正的图标，请在此页修改后，在右上角导出
+          JSON 文件，随后提交 PR 到
+          <a
+            href="https://github.com/Guyutongxue/gcg-buff-icon-data/edit/main/src/data/icons.json"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          ，谢谢！
+        </p>
+        <v-switch
+          label="仅显示无图标"
+          v-model="filterNull"
+          color="primary"
+        ></v-switch>
         <v-table>
           <thead>
             <tr>
@@ -68,8 +77,15 @@ const filterNull = ref(false);
               <tr v-if="!filterNull || !m[item.id]">
                 <td>{{ item.id }}</td>
                 <td>
-                  <v-chip v-if="item.type === 'GCG_CARD_ONSTAGE'" color="green"> 出战 </v-chip>
-                  <v-chip v-else-if="item.type === 'GCG_CARD_SUMMON'" color="purple"> 召唤物 </v-chip>
+                  <v-chip v-if="item.type === 'GCG_CARD_ONSTAGE'" color="green">
+                    出战
+                  </v-chip>
+                  <v-chip
+                    v-else-if="item.type === 'GCG_CARD_SUMMON'"
+                    color="purple"
+                  >
+                    召唤物
+                  </v-chip>
                   <v-chip v-else color="orange"> 角色 </v-chip>
                   {{ item.name }}
                   <v-tooltip
