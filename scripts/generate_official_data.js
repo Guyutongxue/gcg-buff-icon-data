@@ -18,7 +18,11 @@ const {
 const result = [];
 
 for (const obj of Object.values(tcgstatuseffects)) {
-  if (obj.cardtype === "GCG_CARD_STATE" || obj.cardtype === "GCG_CARD_ONSTAGE" || obj.cardtype === "GCG_CARD_SUMMON") {
+  if (
+    obj.cardtype === "GCG_CARD_STATE" ||
+    obj.cardtype === "GCG_CARD_ONSTAGE" ||
+    obj.cardtype === "GCG_CARD_SUMMON"
+  ) {
     result.push({
       id: obj.id,
       name: obj.name,
@@ -28,7 +32,17 @@ for (const obj of Object.values(tcgstatuseffects)) {
   }
 }
 
-await writeFile(path.join(outputDir, "official.json"), JSON.stringify(result, null, 2));
+await writeFile(
+  path.join(outputDir, "official.json"),
+  JSON.stringify(result, null, 2)
+);
 
 const images = await readdir(path.join(__dirname, "../public/Sprite"));
-await writeFile(path.join(outputDir, "image_list.json"), JSON.stringify(images.filter(c => !c.includes('#')), null, 2));
+await writeFile(
+  path.join(outputDir, "image_list.json"),
+  JSON.stringify(
+    images.filter((c) => !c.includes("#")).map(c => c.replace(/\.png$/g, "")),
+    null,
+    2
+  )
+);

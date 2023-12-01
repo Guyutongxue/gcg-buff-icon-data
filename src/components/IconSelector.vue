@@ -28,7 +28,7 @@ function toggleImageSelection(image: string) {
 <template>
   <div class="text-center">
     <v-btn rounded>
-      <img v-if="modelValue" :src="'./Sprite/' + modelValue" width="35" />
+      <img v-if="modelValue" :src="`./Sprite/${modelValue}.png`" width="35" />
       <span v-else>选择图标</span>
       <v-menu
         v-model="menu"
@@ -46,7 +46,7 @@ function toggleImageSelection(image: string) {
                 @click="toggleImageSelection(image)"
                 :class="{ 'bg-grey-lighten-3': modelValue === image }"
               >
-                <v-img :src="'./Sprite/' + image" aspect-ratio="1"></v-img>
+                <v-img :src="`./Sprite/${image}.png`" aspect-ratio="1"></v-img>
                 <v-icon
                   v-if="modelValue === image"
                   class="selected-chip"

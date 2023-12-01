@@ -14,8 +14,8 @@ dependencies:
 
 devDependencies:
   '@genshin-db/tcg':
-    specifier: ^4.3.12
-    version: 4.3.12
+    specifier: ^5.0.1
+    version: 5.0.1
   '@mdi/font':
     specifier: ^7.2.96
     version: 7.2.96
@@ -255,8 +255,8 @@ packages:
     dev: true
     optional: true
 
-  /@genshin-db/tcg@4.3.12:
-    resolution: {integrity: sha512-MdP7bvMuc2+SQlMRBB+TIMeenQ7apuuLRdzghHu84h1dU9DugYnylRzHgLkEI7eiuInPdbdj8bHpBa7ir3VA1Q==}
+  /@genshin-db/tcg@5.0.1:
+    resolution: {integrity: sha512-FJ9XonEdliCgVGOP0++VN3j33YMkHeHL5pfm1ep7WrE8A3mur2zZ+ju1Pu63XbRdG+AKXMH04956x6ZLcjzh4Q==}
     dependencies:
       fuzzysort: 1.9.0
       pako: 2.1.0
