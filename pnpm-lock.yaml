@@ -14,11 +14,14 @@ dependencies:
 
 devDependencies:
   '@genshin-db/tcg':
-    specifier: ^5.0.1
-    version: 5.0.1
+    specifier: ^5.0.9
+    version: 5.0.9
   '@mdi/font':
     specifier: ^7.2.96
     version: 7.2.96
+  '@types/node':
+    specifier: ^20.11.16
+    version: 20.11.16
   '@vitejs/plugin-vue':
     specifier: ^4.2.3
     version: 4.2.3(vite@4.4.0)(vue@3.3.4)
@@ -27,7 +30,7 @@ devDependencies:
     version: 5.0.2
   vite:
     specifier: ^4.4.0
-    version: 4.4.0
+    version: 4.4.0(@types/node@20.11.16)
   vue-tsc:
     specifier: ^1.8.3
     version: 1.8.3(typescript@5.0.2)
@@ -255,8 +258,8 @@ packages:
     dev: true
     optional: true
 
-  /@genshin-db/tcg@5.0.1:
-    resolution: {integrity: sha512-FJ9XonEdliCgVGOP0++VN3j33YMkHeHL5pfm1ep7WrE8A3mur2zZ+ju1Pu63XbRdG+AKXMH04956x6ZLcjzh4Q==}
+  /@genshin-db/tcg@5.0.9:
+    resolution: {integrity: sha512-pATzKXxI+y0odyguYfsNu9hjmXPBginmbKoDDzx2h2N8RsmyAyrudL2oH1ip6cosk+fxBHg2hKGARYEDUN48bg==}
     dependencies:
       fuzzysort: 1.9.0
       pako: 2.1.0
@@ -269,6 +272,12 @@ packages:
     resolution: {integrity: sha512-e//lmkmpFUMZKhmCY9zdjRe4zNXfbOIJnn6xveHbaV2kSw5aJ5dLXUxcRt1Gxfi7ZYpFLUWlkG2MGSFAiqAu7w==}
     dev: true
 
+  /@types/node@20.11.16:
+    resolution: {integrity: sha512-gKb0enTmRCzXSSUJDq6/sPcqrfCv2mkkG6Jt/clpn5eiCbKTY+SgZUxo+p8ZKMof5dCp9vHQUAB7wOUTod22wQ==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
   /@vitejs/plugin-vue@4.2.3(vite@4.4.0)(vue@3.3.4):
     resolution: {integrity: sha512-R6JDUfiZbJA9cMiguQ7jxALsgiprjBeHL5ikpXfJCH62pPHtI+JdJ5xWj6Ev73yXSlYl86+blXn1kZHQ7uElxw==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -276,7 +285,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.0
+      vite: 4.4.0(@types/node@20.11.16)
       vue: 3.3.4
     dev: true
 
@@ -539,7 +548,11 @@ packages:
     engines: {node: '>=12.20'}
     hasBin: true
 
-  /vite@4.4.0:
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
+  /vite@4.4.0(@types/node@20.11.16):
     resolution: {integrity: sha512-Wf+DCEjuM8aGavEYiF77hnbxEZ+0+/jC9nABR46sh5Xi+GYeSvkeEFRiVuI3x+tPjxgZeS91h1jTAQTPFgePpA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -567,6 +580,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.11.16
       esbuild: 0.18.13
       postcss: 8.4.26
       rollup: 3.26.2

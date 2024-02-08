@@ -13,8 +13,9 @@
     "vuetify": "^3.3.8"
   },
   "devDependencies": {
-    "@genshin-db/tcg": "^5.0.1",
+    "@genshin-db/tcg": "^5.0.9",
     "@mdi/font": "^7.2.96",
+    "@types/node": "^20.11.16",
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
